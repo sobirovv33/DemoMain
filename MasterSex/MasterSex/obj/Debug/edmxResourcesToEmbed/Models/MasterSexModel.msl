@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище KrokodiloModelContainer" CdmEntityContainer="KrokodiloEntities">
+    <EntitySetMapping Name="HistoryMaterial">
+      <EntityTypeMapping TypeName="KrokodiloModel.HistoryMaterial">
+        <MappingFragment StoreEntitySet="HistoryMaterial">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+          <ScalarProperty Name="idSklad" ColumnName="idSklad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialProducts">
+      <EntityTypeMapping TypeName="KrokodiloModel.MaterialProducts">
+        <MappingFragment StoreEntitySet="MaterialProducts">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+          <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materials">
+      <EntityTypeMapping TypeName="KrokodiloModel.Materials">
+        <MappingFragment StoreEntitySet="Materials">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idType" ColumnName="idType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="idSupplier" ColumnName="idSupplier" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="EdIzmer" ColumnName="EdIzmer" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ImageMaterial" ColumnName="ImageMaterial" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="MinAmount" ColumnName="MinAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialTypes">
+      <EntityTypeMapping TypeName="KrokodiloModel.MaterialTypes">
+        <MappingFragment StoreEntitySet="MaterialTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Brak" ColumnName="Brak" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Partners">
+      <EntityTypeMapping TypeName="KrokodiloModel.Partners">
+        <MappingFragment StoreEntitySet="Partners">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idType" ColumnName="idType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DirektorFIO" ColumnName="DirektorFIO" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="INN" ColumnName="INN" />
+          <ScalarProperty Name="Reiting" ColumnName="Reiting" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnersProducts">
+      <EntityTypeMapping TypeName="KrokodiloModel.PartnersProducts">
+        <MappingFragment StoreEntitySet="PartnersProducts">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+          <ScalarProperty Name="idPartner" ColumnName="idPartner" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerTypes">
+      <EntityTypeMapping TypeName="KrokodiloModel.PartnerTypes">
+        <MappingFragment StoreEntitySet="PartnerTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="KrokodiloModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idType" ColumnName="idType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Artikul" ColumnName="Artikul" />
+          <ScalarProperty Name="MinPriceForPartner" ColumnName="MinPriceForPartner" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTypes">
+      <EntityTypeMapping TypeName="KrokodiloModel.ProductTypes">
+        <MappingFragment StoreEntitySet="ProductTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Keff" ColumnName="Keff" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="KrokodiloModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sklads">
+      <EntityTypeMapping TypeName="KrokodiloModel.Sklads">
+        <MappingFragment StoreEntitySet="Sklads">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SkladUsers">
+      <EntityTypeMapping TypeName="KrokodiloModel.SkladUsers">
+        <MappingFragment StoreEntitySet="SkladUsers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idSklad" ColumnName="idSklad" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="KrokodiloModel.Suppliers">
+        <MappingFragment StoreEntitySet="Suppliers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idType" ColumnName="idType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="INN" ColumnName="INN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupplierTypes">
+      <EntityTypeMapping TypeName="KrokodiloModel.SupplierTypes">
+        <MappingFragment StoreEntitySet="SupplierTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupplyHistory">
+      <EntityTypeMapping TypeName="KrokodiloModel.SupplyHistory">
+        <MappingFragment StoreEntitySet="SupplyHistory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idHistoryMaterial" ColumnName="idHistoryMaterial" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="KrokodiloModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="KrokodiloModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="DateOfBirthday" ColumnName="DateOfBirthday" />
+          <ScalarProperty Name="Pasport" ColumnName="Pasport" />
+          <ScalarProperty Name="Rekvisits" ColumnName="Rekvisits" />
+          <ScalarProperty Name="isMerried" ColumnName="isMerried" />
+          <ScalarProperty Name="Helth" ColumnName="Helth" />
+          <ScalarProperty Name="idRole" ColumnName="idRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

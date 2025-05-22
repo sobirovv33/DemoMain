@@ -1,0 +1,1120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище KrokodiloModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="HistoryMaterial">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idMaterial" Type="int" />
+          <Property Name="idSklad" Type="int" />
+        </EntityType>
+        <EntityType Name="MaterialProducts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idMaterial" Type="int" />
+          <Property Name="idProduct" Type="int" />
+          <Property Name="Amount" Type="int" />
+        </EntityType>
+        <EntityType Name="Materials">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idType" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="idSupplier" Type="int" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="EdIzmer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ImageMaterial" Type="nvarchar(max)" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MinAmount" Type="int" />
+        </EntityType>
+        <EntityType Name="MaterialTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Brak" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Partners">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idType" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="DirektorFIO" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="225" Nullable="false" />
+          <Property Name="INN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Reiting" Type="int" />
+          <Property Name="Logo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PartnersProducts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idProduct" Type="int" />
+          <Property Name="idPartner" Type="int" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PartnerTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idType" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Artikul" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MinPriceForPartner" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="ProductTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Keff" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sklads">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SkladUsers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idSklad" Type="int" />
+          <Property Name="idUser" Type="int" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idType" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="INN" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SupplierTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SupplyHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idHistoryMaterial" Type="int" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="200" />
+          <Property Name="DateOfBirthday" Type="date" />
+          <Property Name="Pasport" Type="nvarchar" MaxLength="100" />
+          <Property Name="Rekvisits" Type="nvarchar" MaxLength="100" />
+          <Property Name="isMerried" Type="bit" />
+          <Property Name="Helth" Type="nvarchar" MaxLength="50" />
+          <Property Name="idRole" Type="int" />
+        </EntityType>
+        <Association Name="FK__Partners__idType__3B75D760">
+          <End Role="PartnerTypes" Type="Self.PartnerTypes" Multiplicity="0..1" />
+          <End Role="Partners" Type="Self.Partners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnerTypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Partners">
+              <PropertyRef Name="idType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PartnersP__idPar__440B1D61">
+          <End Role="Partners" Type="Self.Partners" Multiplicity="0..1" />
+          <End Role="PartnersProducts" Type="Self.PartnersProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partners">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PartnersProducts">
+              <PropertyRef Name="idPartner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PartnersP__idPro__4316F928">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="PartnersProducts" Type="Self.PartnersProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PartnersProducts">
+              <PropertyRef Name="idProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__idType__403A8C7D">
+          <End Role="ProductTypes" Type="Self.ProductTypes" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="idType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoryMaterial_Materials">
+          <End Role="Materials" Type="Self.Materials" Multiplicity="0..1" />
+          <End Role="HistoryMaterial" Type="Self.HistoryMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materials">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="HistoryMaterial">
+              <PropertyRef Name="idMaterial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoryMaterial_Sklads">
+          <End Role="Sklads" Type="Self.Sklads" Multiplicity="0..1" />
+          <End Role="HistoryMaterial" Type="Self.HistoryMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sklads">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="HistoryMaterial">
+              <PropertyRef Name="idSklad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialProducts_Materials">
+          <End Role="Materials" Type="Self.Materials" Multiplicity="0..1" />
+          <End Role="MaterialProducts" Type="Self.MaterialProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materials">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MaterialProducts">
+              <PropertyRef Name="idMaterial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialProducts_Partners">
+          <End Role="Partners" Type="Self.Partners" Multiplicity="0..1" />
+          <End Role="MaterialProducts" Type="Self.MaterialProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partners">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MaterialProducts">
+              <PropertyRef Name="idProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialProducts_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="MaterialProducts" Type="Self.MaterialProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MaterialProducts">
+              <PropertyRef Name="idProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materials_MaterialTypes">
+          <End Role="MaterialTypes" Type="Self.MaterialTypes" Multiplicity="0..1" />
+          <End Role="Materials" Type="Self.Materials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialTypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Materials">
+              <PropertyRef Name="idType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materials_Suppliers">
+          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
+          <End Role="Materials" Type="Self.Materials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Materials">
+              <PropertyRef Name="idSupplier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkladUsers_Sklads">
+          <End Role="Sklads" Type="Self.Sklads" Multiplicity="0..1" />
+          <End Role="SkladUsers" Type="Self.SkladUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sklads">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SkladUsers">
+              <PropertyRef Name="idSklad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkladUsers_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="SkladUsers" Type="Self.SkladUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SkladUsers">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Suppliers_SupplierTypes">
+          <End Role="SupplierTypes" Type="Self.SupplierTypes" Multiplicity="0..1" />
+          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupplierTypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Suppliers">
+              <PropertyRef Name="idType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplyHistory_HistoryMaterial">
+          <End Role="HistoryMaterial" Type="Self.HistoryMaterial" Multiplicity="0..1" />
+          <End Role="SupplyHistory" Type="Self.SupplyHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HistoryMaterial">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SupplyHistory">
+              <PropertyRef Name="idHistoryMaterial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="idRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище KrokodiloModelContainer">
+          <EntitySet Name="HistoryMaterial" EntityType="Self.HistoryMaterial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialProducts" EntityType="Self.MaterialProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Materials" EntityType="Self.Materials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialTypes" EntityType="Self.MaterialTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partners" EntityType="Self.Partners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PartnersProducts" EntityType="Self.PartnersProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PartnerTypes" EntityType="Self.PartnerTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductTypes" EntityType="Self.ProductTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sklads" EntityType="Self.Sklads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkladUsers" EntityType="Self.SkladUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplierTypes" EntityType="Self.SupplierTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupplyHistory" EntityType="Self.SupplyHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Partners__idType__3B75D760" Association="Self.FK__Partners__idType__3B75D760">
+            <End Role="PartnerTypes" EntitySet="PartnerTypes" />
+            <End Role="Partners" EntitySet="Partners" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PartnersP__idPar__440B1D61" Association="Self.FK__PartnersP__idPar__440B1D61">
+            <End Role="Partners" EntitySet="Partners" />
+            <End Role="PartnersProducts" EntitySet="PartnersProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PartnersP__idPro__4316F928" Association="Self.FK__PartnersP__idPro__4316F928">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="PartnersProducts" EntitySet="PartnersProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__idType__403A8C7D" Association="Self.FK__Products__idType__403A8C7D">
+            <End Role="ProductTypes" EntitySet="ProductTypes" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoryMaterial_Materials" Association="Self.FK_HistoryMaterial_Materials">
+            <End Role="Materials" EntitySet="Materials" />
+            <End Role="HistoryMaterial" EntitySet="HistoryMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoryMaterial_Sklads" Association="Self.FK_HistoryMaterial_Sklads">
+            <End Role="Sklads" EntitySet="Sklads" />
+            <End Role="HistoryMaterial" EntitySet="HistoryMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialProducts_Materials" Association="Self.FK_MaterialProducts_Materials">
+            <End Role="Materials" EntitySet="Materials" />
+            <End Role="MaterialProducts" EntitySet="MaterialProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialProducts_Partners" Association="Self.FK_MaterialProducts_Partners">
+            <End Role="Partners" EntitySet="Partners" />
+            <End Role="MaterialProducts" EntitySet="MaterialProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialProducts_Products" Association="Self.FK_MaterialProducts_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="MaterialProducts" EntitySet="MaterialProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materials_MaterialTypes" Association="Self.FK_Materials_MaterialTypes">
+            <End Role="MaterialTypes" EntitySet="MaterialTypes" />
+            <End Role="Materials" EntitySet="Materials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materials_Suppliers" Association="Self.FK_Materials_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Materials" EntitySet="Materials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkladUsers_Sklads" Association="Self.FK_SkladUsers_Sklads">
+            <End Role="Sklads" EntitySet="Sklads" />
+            <End Role="SkladUsers" EntitySet="SkladUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkladUsers_Users" Association="Self.FK_SkladUsers_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SkladUsers" EntitySet="SkladUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Suppliers_SupplierTypes" Association="Self.FK_Suppliers_SupplierTypes">
+            <End Role="SupplierTypes" EntitySet="SupplierTypes" />
+            <End Role="Suppliers" EntitySet="Suppliers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplyHistory_HistoryMaterial" Association="Self.FK_SupplyHistory_HistoryMaterial">
+            <End Role="HistoryMaterial" EntitySet="HistoryMaterial" />
+            <End Role="SupplyHistory" EntitySet="SupplyHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KrokodiloModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="KrokodiloEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HistoryMaterial" EntityType="KrokodiloModel.HistoryMaterial" />
+          <EntitySet Name="MaterialProducts" EntityType="KrokodiloModel.MaterialProducts" />
+          <EntitySet Name="Materials" EntityType="KrokodiloModel.Materials" />
+          <EntitySet Name="MaterialTypes" EntityType="KrokodiloModel.MaterialTypes" />
+          <EntitySet Name="Partners" EntityType="KrokodiloModel.Partners" />
+          <EntitySet Name="PartnersProducts" EntityType="KrokodiloModel.PartnersProducts" />
+          <EntitySet Name="PartnerTypes" EntityType="KrokodiloModel.PartnerTypes" />
+          <EntitySet Name="Products" EntityType="KrokodiloModel.Products" />
+          <EntitySet Name="ProductTypes" EntityType="KrokodiloModel.ProductTypes" />
+          <EntitySet Name="Roles" EntityType="KrokodiloModel.Roles" />
+          <EntitySet Name="Sklads" EntityType="KrokodiloModel.Sklads" />
+          <EntitySet Name="SkladUsers" EntityType="KrokodiloModel.SkladUsers" />
+          <EntitySet Name="Suppliers" EntityType="KrokodiloModel.Suppliers" />
+          <EntitySet Name="SupplierTypes" EntityType="KrokodiloModel.SupplierTypes" />
+          <EntitySet Name="SupplyHistory" EntityType="KrokodiloModel.SupplyHistory" />
+          <EntitySet Name="sysdiagrams" EntityType="KrokodiloModel.sysdiagrams" />
+          <EntitySet Name="Users" EntityType="KrokodiloModel.Users" />
+          <AssociationSet Name="FK_HistoryMaterial_Materials" Association="KrokodiloModel.FK_HistoryMaterial_Materials">
+            <End Role="Materials" EntitySet="Materials" />
+            <End Role="HistoryMaterial" EntitySet="HistoryMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HistoryMaterial_Sklads" Association="KrokodiloModel.FK_HistoryMaterial_Sklads">
+            <End Role="Sklads" EntitySet="Sklads" />
+            <End Role="HistoryMaterial" EntitySet="HistoryMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupplyHistory_HistoryMaterial" Association="KrokodiloModel.FK_SupplyHistory_HistoryMaterial">
+            <End Role="HistoryMaterial" EntitySet="HistoryMaterial" />
+            <End Role="SupplyHistory" EntitySet="SupplyHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialProducts_Materials" Association="KrokodiloModel.FK_MaterialProducts_Materials">
+            <End Role="Materials" EntitySet="Materials" />
+            <End Role="MaterialProducts" EntitySet="MaterialProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialProducts_Partners" Association="KrokodiloModel.FK_MaterialProducts_Partners">
+            <End Role="Partners" EntitySet="Partners" />
+            <End Role="MaterialProducts" EntitySet="MaterialProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialProducts_Products" Association="KrokodiloModel.FK_MaterialProducts_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="MaterialProducts" EntitySet="MaterialProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materials_MaterialTypes" Association="KrokodiloModel.FK_Materials_MaterialTypes">
+            <End Role="MaterialTypes" EntitySet="MaterialTypes" />
+            <End Role="Materials" EntitySet="Materials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materials_Suppliers" Association="KrokodiloModel.FK_Materials_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Materials" EntitySet="Materials" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Partners__idType__3B75D760" Association="KrokodiloModel.FK__Partners__idType__3B75D760">
+            <End Role="PartnerTypes" EntitySet="PartnerTypes" />
+            <End Role="Partners" EntitySet="Partners" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PartnersP__idPar__440B1D61" Association="KrokodiloModel.FK__PartnersP__idPar__440B1D61">
+            <End Role="Partners" EntitySet="Partners" />
+            <End Role="PartnersProducts" EntitySet="PartnersProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PartnersP__idPro__4316F928" Association="KrokodiloModel.FK__PartnersP__idPro__4316F928">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="PartnersProducts" EntitySet="PartnersProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__idType__403A8C7D" Association="KrokodiloModel.FK__Products__idType__403A8C7D">
+            <End Role="ProductTypes" EntitySet="ProductTypes" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles" Association="KrokodiloModel.FK_Users_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkladUsers_Sklads" Association="KrokodiloModel.FK_SkladUsers_Sklads">
+            <End Role="Sklads" EntitySet="Sklads" />
+            <End Role="SkladUsers" EntitySet="SkladUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SkladUsers_Users" Association="KrokodiloModel.FK_SkladUsers_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SkladUsers" EntitySet="SkladUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Suppliers_SupplierTypes" Association="KrokodiloModel.FK_Suppliers_SupplierTypes">
+            <End Role="SupplierTypes" EntitySet="SupplierTypes" />
+            <End Role="Suppliers" EntitySet="Suppliers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="HistoryMaterial">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idMaterial" Type="Int32" />
+          <Property Name="idSklad" Type="Int32" />
+          <NavigationProperty Name="Materials" Relationship="KrokodiloModel.FK_HistoryMaterial_Materials" FromRole="HistoryMaterial" ToRole="Materials" />
+          <NavigationProperty Name="Sklads" Relationship="KrokodiloModel.FK_HistoryMaterial_Sklads" FromRole="HistoryMaterial" ToRole="Sklads" />
+          <NavigationProperty Name="SupplyHistory" Relationship="KrokodiloModel.FK_SupplyHistory_HistoryMaterial" FromRole="HistoryMaterial" ToRole="SupplyHistory" />
+        </EntityType>
+        <EntityType Name="MaterialProducts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idMaterial" Type="Int32" />
+          <Property Name="idProduct" Type="Int32" />
+          <Property Name="Amount" Type="Int32" />
+          <NavigationProperty Name="Materials" Relationship="KrokodiloModel.FK_MaterialProducts_Materials" FromRole="MaterialProducts" ToRole="Materials" />
+          <NavigationProperty Name="Partners" Relationship="KrokodiloModel.FK_MaterialProducts_Partners" FromRole="MaterialProducts" ToRole="Partners" />
+          <NavigationProperty Name="Products" Relationship="KrokodiloModel.FK_MaterialProducts_Products" FromRole="MaterialProducts" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Materials">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idType" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idSupplier" Type="Int32" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="EdIzmer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageMaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MinAmount" Type="Int32" />
+          <NavigationProperty Name="HistoryMaterial" Relationship="KrokodiloModel.FK_HistoryMaterial_Materials" FromRole="Materials" ToRole="HistoryMaterial" />
+          <NavigationProperty Name="MaterialProducts" Relationship="KrokodiloModel.FK_MaterialProducts_Materials" FromRole="Materials" ToRole="MaterialProducts" />
+          <NavigationProperty Name="MaterialTypes" Relationship="KrokodiloModel.FK_Materials_MaterialTypes" FromRole="Materials" ToRole="MaterialTypes" />
+          <NavigationProperty Name="Suppliers" Relationship="KrokodiloModel.FK_Materials_Suppliers" FromRole="Materials" ToRole="Suppliers" />
+        </EntityType>
+        <EntityType Name="MaterialTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Brak" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Materials" Relationship="KrokodiloModel.FK_Materials_MaterialTypes" FromRole="MaterialTypes" ToRole="Materials" />
+        </EntityType>
+        <EntityType Name="Partners">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idType" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DirektorFIO" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="true" />
+          <Property Name="INN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Reiting" Type="Int32" />
+          <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MaterialProducts" Relationship="KrokodiloModel.FK_MaterialProducts_Partners" FromRole="Partners" ToRole="MaterialProducts" />
+          <NavigationProperty Name="PartnerTypes" Relationship="KrokodiloModel.FK__Partners__idType__3B75D760" FromRole="Partners" ToRole="PartnerTypes" />
+          <NavigationProperty Name="PartnersProducts" Relationship="KrokodiloModel.FK__PartnersP__idPar__440B1D61" FromRole="Partners" ToRole="PartnersProducts" />
+        </EntityType>
+        <EntityType Name="PartnersProducts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idProduct" Type="Int32" />
+          <Property Name="idPartner" Type="Int32" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Partners" Relationship="KrokodiloModel.FK__PartnersP__idPar__440B1D61" FromRole="PartnersProducts" ToRole="Partners" />
+          <NavigationProperty Name="Products" Relationship="KrokodiloModel.FK__PartnersP__idPro__4316F928" FromRole="PartnersProducts" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="PartnerTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Partners" Relationship="KrokodiloModel.FK__Partners__idType__3B75D760" FromRole="PartnerTypes" ToRole="Partners" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idType" Type="Int32" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Artikul" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MinPriceForPartner" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="MaterialProducts" Relationship="KrokodiloModel.FK_MaterialProducts_Products" FromRole="Products" ToRole="MaterialProducts" />
+          <NavigationProperty Name="PartnersProducts" Relationship="KrokodiloModel.FK__PartnersP__idPro__4316F928" FromRole="Products" ToRole="PartnersProducts" />
+          <NavigationProperty Name="ProductTypes" Relationship="KrokodiloModel.FK__Products__idType__403A8C7D" FromRole="Products" ToRole="ProductTypes" />
+        </EntityType>
+        <EntityType Name="ProductTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Keff" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Products" Relationship="KrokodiloModel.FK__Products__idType__403A8C7D" FromRole="ProductTypes" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="KrokodiloModel.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Sklads">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HistoryMaterial" Relationship="KrokodiloModel.FK_HistoryMaterial_Sklads" FromRole="Sklads" ToRole="HistoryMaterial" />
+          <NavigationProperty Name="SkladUsers" Relationship="KrokodiloModel.FK_SkladUsers_Sklads" FromRole="Sklads" ToRole="SkladUsers" />
+        </EntityType>
+        <EntityType Name="SkladUsers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idSklad" Type="Int32" />
+          <Property Name="idUser" Type="Int32" />
+          <NavigationProperty Name="Sklads" Relationship="KrokodiloModel.FK_SkladUsers_Sklads" FromRole="SkladUsers" ToRole="Sklads" />
+          <NavigationProperty Name="Users" Relationship="KrokodiloModel.FK_SkladUsers_Users" FromRole="SkladUsers" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idType" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="INN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Materials" Relationship="KrokodiloModel.FK_Materials_Suppliers" FromRole="Suppliers" ToRole="Materials" />
+          <NavigationProperty Name="SupplierTypes" Relationship="KrokodiloModel.FK_Suppliers_SupplierTypes" FromRole="Suppliers" ToRole="SupplierTypes" />
+        </EntityType>
+        <EntityType Name="SupplierTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Suppliers" Relationship="KrokodiloModel.FK_Suppliers_SupplierTypes" FromRole="SupplierTypes" ToRole="Suppliers" />
+        </EntityType>
+        <EntityType Name="SupplyHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idHistoryMaterial" Type="Int32" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="HistoryMaterial" Relationship="KrokodiloModel.FK_SupplyHistory_HistoryMaterial" FromRole="SupplyHistory" ToRole="HistoryMaterial" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="FIO" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirthday" Type="DateTime" Precision="0" />
+          <Property Name="Pasport" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Rekvisits" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isMerried" Type="Boolean" />
+          <Property Name="Helth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idRole" Type="Int32" />
+          <NavigationProperty Name="Roles" Relationship="KrokodiloModel.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
+          <NavigationProperty Name="SkladUsers" Relationship="KrokodiloModel.FK_SkladUsers_Users" FromRole="Users" ToRole="SkladUsers" />
+        </EntityType>
+        <Association Name="FK_HistoryMaterial_Materials">
+          <End Type="KrokodiloModel.Materials" Role="Materials" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.HistoryMaterial" Role="HistoryMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materials">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="HistoryMaterial">
+              <PropertyRef Name="idMaterial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HistoryMaterial_Sklads">
+          <End Type="KrokodiloModel.Sklads" Role="Sklads" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.HistoryMaterial" Role="HistoryMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sklads">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="HistoryMaterial">
+              <PropertyRef Name="idSklad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupplyHistory_HistoryMaterial">
+          <End Type="KrokodiloModel.HistoryMaterial" Role="HistoryMaterial" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.SupplyHistory" Role="SupplyHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HistoryMaterial">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SupplyHistory">
+              <PropertyRef Name="idHistoryMaterial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialProducts_Materials">
+          <End Type="KrokodiloModel.Materials" Role="Materials" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.MaterialProducts" Role="MaterialProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materials">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MaterialProducts">
+              <PropertyRef Name="idMaterial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialProducts_Partners">
+          <End Type="KrokodiloModel.Partners" Role="Partners" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.MaterialProducts" Role="MaterialProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partners">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MaterialProducts">
+              <PropertyRef Name="idProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialProducts_Products">
+          <End Type="KrokodiloModel.Products" Role="Products" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.MaterialProducts" Role="MaterialProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MaterialProducts">
+              <PropertyRef Name="idProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materials_MaterialTypes">
+          <End Type="KrokodiloModel.MaterialTypes" Role="MaterialTypes" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.Materials" Role="Materials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialTypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Materials">
+              <PropertyRef Name="idType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materials_Suppliers">
+          <End Type="KrokodiloModel.Suppliers" Role="Suppliers" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.Materials" Role="Materials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Materials">
+              <PropertyRef Name="idSupplier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Partners__idType__3B75D760">
+          <End Type="KrokodiloModel.PartnerTypes" Role="PartnerTypes" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.Partners" Role="Partners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PartnerTypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Partners">
+              <PropertyRef Name="idType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PartnersP__idPar__440B1D61">
+          <End Type="KrokodiloModel.Partners" Role="Partners" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.PartnersProducts" Role="PartnersProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partners">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PartnersProducts">
+              <PropertyRef Name="idPartner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PartnersP__idPro__4316F928">
+          <End Type="KrokodiloModel.Products" Role="Products" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.PartnersProducts" Role="PartnersProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PartnersProducts">
+              <PropertyRef Name="idProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__idType__403A8C7D">
+          <End Type="KrokodiloModel.ProductTypes" Role="ProductTypes" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.Products" Role="Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="idType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles">
+          <End Type="KrokodiloModel.Roles" Role="Roles" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.Users" Role="Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="idRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkladUsers_Sklads">
+          <End Type="KrokodiloModel.Sklads" Role="Sklads" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.SkladUsers" Role="SkladUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sklads">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SkladUsers">
+              <PropertyRef Name="idSklad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SkladUsers_Users">
+          <End Type="KrokodiloModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.SkladUsers" Role="SkladUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SkladUsers">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Suppliers_SupplierTypes">
+          <End Type="KrokodiloModel.SupplierTypes" Role="SupplierTypes" Multiplicity="0..1" />
+          <End Type="KrokodiloModel.Suppliers" Role="Suppliers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupplierTypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Suppliers">
+              <PropertyRef Name="idType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище KrokodiloModelContainer" CdmEntityContainer="KrokodiloEntities">
+          <EntitySetMapping Name="HistoryMaterial">
+            <EntityTypeMapping TypeName="KrokodiloModel.HistoryMaterial">
+              <MappingFragment StoreEntitySet="HistoryMaterial">
+                <ScalarProperty Name="idSklad" ColumnName="idSklad" />
+                <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialProducts">
+            <EntityTypeMapping TypeName="KrokodiloModel.MaterialProducts">
+              <MappingFragment StoreEntitySet="MaterialProducts">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+                <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materials">
+            <EntityTypeMapping TypeName="KrokodiloModel.Materials">
+              <MappingFragment StoreEntitySet="Materials">
+                <ScalarProperty Name="MinAmount" ColumnName="MinAmount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ImageMaterial" ColumnName="ImageMaterial" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EdIzmer" ColumnName="EdIzmer" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="idSupplier" ColumnName="idSupplier" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="idType" ColumnName="idType" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialTypes">
+            <EntityTypeMapping TypeName="KrokodiloModel.MaterialTypes">
+              <MappingFragment StoreEntitySet="MaterialTypes">
+                <ScalarProperty Name="Brak" ColumnName="Brak" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partners">
+            <EntityTypeMapping TypeName="KrokodiloModel.Partners">
+              <MappingFragment StoreEntitySet="Partners">
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Reiting" ColumnName="Reiting" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DirektorFIO" ColumnName="DirektorFIO" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="idType" ColumnName="idType" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartnersProducts">
+            <EntityTypeMapping TypeName="KrokodiloModel.PartnersProducts">
+              <MappingFragment StoreEntitySet="PartnersProducts">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="idPartner" ColumnName="idPartner" />
+                <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PartnerTypes">
+            <EntityTypeMapping TypeName="KrokodiloModel.PartnerTypes">
+              <MappingFragment StoreEntitySet="PartnerTypes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="KrokodiloModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="MinPriceForPartner" ColumnName="MinPriceForPartner" />
+                <ScalarProperty Name="Artikul" ColumnName="Artikul" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="idType" ColumnName="idType" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTypes">
+            <EntityTypeMapping TypeName="KrokodiloModel.ProductTypes">
+              <MappingFragment StoreEntitySet="ProductTypes">
+                <ScalarProperty Name="Keff" ColumnName="Keff" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="KrokodiloModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sklads">
+            <EntityTypeMapping TypeName="KrokodiloModel.Sklads">
+              <MappingFragment StoreEntitySet="Sklads">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkladUsers">
+            <EntityTypeMapping TypeName="KrokodiloModel.SkladUsers">
+              <MappingFragment StoreEntitySet="SkladUsers">
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="idSklad" ColumnName="idSklad" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="KrokodiloModel.Suppliers">
+              <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="idType" ColumnName="idType" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplierTypes">
+            <EntityTypeMapping TypeName="KrokodiloModel.SupplierTypes">
+              <MappingFragment StoreEntitySet="SupplierTypes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupplyHistory">
+            <EntityTypeMapping TypeName="KrokodiloModel.SupplyHistory">
+              <MappingFragment StoreEntitySet="SupplyHistory">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="idHistoryMaterial" ColumnName="idHistoryMaterial" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="KrokodiloModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="KrokodiloModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="idRole" ColumnName="idRole" />
+                <ScalarProperty Name="Helth" ColumnName="Helth" />
+                <ScalarProperty Name="isMerried" ColumnName="isMerried" />
+                <ScalarProperty Name="Rekvisits" ColumnName="Rekvisits" />
+                <ScalarProperty Name="Pasport" ColumnName="Pasport" />
+                <ScalarProperty Name="DateOfBirthday" ColumnName="DateOfBirthday" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
